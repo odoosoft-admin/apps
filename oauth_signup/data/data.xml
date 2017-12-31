@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <function model="ir.config_parameter" name="set_param" eval="('auth_signup.allow_uninvited', True)" />
+
+    <record id="provider_twitter" model="oauth.oauth">
+        <field name="name">Twitter</field>
+        <field name="client_id"></field>
+        <field name="client_secret"></field>
+        <field name="enabled" eval="True"/>
+        <field name="oauth_type">oauth1</field>
+        <field name="request_token_endpoint">https://api.twitter.com/oauth/request_token</field>
+        <field name="auth_endpoint">https://api.twitter.com/oauth/authorize</field>
+        <field name="access_token_endpoint">https://api.twitter.com/oauth/access_token</field>
+        <field name="icon">fa-twitter</field>
+        <field name="sequence">3</field>
+        <field name="help_url">https://www.odoo.com/documentation/user/10.0/discuss/mail_twitter.html</field>
+    </record>
+    
+    <record id="provider_facebook" model="oauth.oauth">
+        <field name="name">Facebook</field>
+        <field name="client_id"></field>
+        <field name="client_secret"></field>
+        <field name="enabled" eval="True"/>
+        <field name="oauth_type">oauth2</field>
+        <field name="request_token_endpoint">https://www.facebook.com/dialog/oauth</field>
+        <field name="auth_endpoint">https://www.facebook.com/dialog/oauth</field>
+        <field name="access_token_endpoint">https://graph.facebook.com/oauth/access_token</field>
+        <field name="icon">fa-facebook</field>
+        <field name="sequence">2</field>
+        <field name="help_url">https://stackoverflow.com/questions/3203649/where-can-i-find-my-facebook-application-id-and-secret-key</field>
+    </record>
+    
+    <record id="provider_google" model="oauth.oauth">
+        <field name="name">Google</field>
+        <field name="client_id"></field>
+        <field name="client_secret"></field>
+        <field name="enabled" eval="True"/>
+        <field name="oauth_type">oauth2</field>
+        <field name="auth_endpoint">https://accounts.google.com/o/oauth2/v2/auth</field>
+        <field name="access_token_endpoint">https://www.googleapis.com/oauth2/v4/token</field>
+        <field name="icon">fa-google</field>
+        <field name="sequence">1</field>
+        <field name="help_url">https://www.odoo.com/documentation/user/11.0/general/auth/google.html</field>
+    </record>
+    
+    <record id="provider_linkedin" model="oauth.oauth">
+        <field name="name">Linkedin</field>
+        <field name="client_id"></field>
+        <field name="client_secret"></field>
+        <field name="enabled" eval="True"/>
+        <field name="oauth_type">oauth2</field>
+        <field name="auth_endpoint">https://www.linkedin.com/oauth/v2/authorization</field>
+        <field name="access_token_endpoint">https://www.linkedin.com/oauth/v2/accessToken</field>
+        <field name="icon">fa-linkedin</field>
+        <field name="sequence">4</field>
+        <field name="help_url">https://developer.linkedin.com/docs/oauth2</field>
+    </record>
+
+</odoo>

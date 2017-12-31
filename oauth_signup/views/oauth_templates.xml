@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="assets_common_scoial" inherit_id="web.assets_common" name="Social Signup">
+        <xpath expr='.' position="inside">
+            <link rel="stylesheet" href="/oauth_signup/static/src/less/signup.less"/>
+        </xpath>
+    </template>
+            
+    <template id="auth_oauth_social" inherit_id="auth_oauth.providers" name="OAuth Reset Password buttons">
+        <xpath expr="*" position="replace">
+        </xpath>
+    </template>
+
+    <template id="aouth_web_login" inherit_id="web.login">
+        <xpath expr="//div[hasclass('oe_login_buttons')]"  position="inside">
+            <div class="mt16 mb32 text-center o-social-signup">
+                <h4>Sigup with</h4>
+                <t t-foreach="oauth_providers" t-as="provider">
+                    <a class="o-social-icon" t-att-href="provider['link']"><i t-attf-class="fa #{provider['icon']}"></i></a>
+                </t>
+                <t t-if="not oauth_providers">
+                    <h5>Please configure social signup provider from backend</h5>
+                </t>
+            </div>
+        </xpath>
+    </template> 
+    
+</odoo>

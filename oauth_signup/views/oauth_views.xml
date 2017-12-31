@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_oauth_provider_tree" model="ir.ui.view">
+        <field name="name">oauth.provider.tree</field>
+        <field name="model">oauth.oauth</field>
+        <field name="arch" type="xml">
+            <tree string="Providers" create="false">
+                <field name="sequence" widget="handle" />
+                <field name="name"/>
+                <field name="client_id"/>
+                <field name="client_secret"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_oauth_provider_form" model="ir.ui.view">
+        <field name="name">oauth.provider.form</field>
+        <field name="model">oauth.oauth</field>
+        <field name="arch" type="xml">
+            <form string="Providers" create="false">
+                <sheet>
+                    <div>
+                        <h1 class="mt0">
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="client_id" required="True"/>
+                        <field name="client_secret" required="True"/>
+                    </group>
+                    <span>
+                        <field name="help_url" widget="url" text="Get Client ID and Client Secret" class="oe_inline oe_bold"/>
+                        <span> you have to set callback(redirect) url as </span> <field name="help_callback" widget="url" class="oe_inline oe_bold"/>
+                    </span>
+                    <group>
+                        <group>
+                            <field name="after_login_url"/>
+                            <field name="enabled"/>
+                            <field name="sequence"/>
+                            <field name="oauth_type"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="auth_endpoint"/>
+                        <field name="access_token_endpoint"/>
+                        <field name="request_token_endpoint"/>
+                        <field name="scope"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_oauth_provider" model="ir.actions.act_window">
+        <field name="name">Providers</field>
+        <field name="res_model">oauth.oauth</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Top menu item -->
+    <menuitem id="menu_oauth_root" name="Oauth"/>
+
+    <menuitem name="Providers" id="menu_oauth_provider_parent" parent="menu_oauth_root"/>
+    <menuitem name="Providers" id="menu_oauth_provider" parent="menu_oauth_provider_parent"
+              action="action_oauth_provider"/>
+
+    <record model="ir.ui.menu" id="auth_oauth.menu_oauth_providers">
+        <field name="action" ref="oauth_signup.action_oauth_provider"/>
+    </record>
+</odoo>

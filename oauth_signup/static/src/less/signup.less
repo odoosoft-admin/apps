@@ -1,0 +1,61 @@
+.o-social-signup{
+    a.o-social-icon{
+        margin: 5px;
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 2px;
+        width: 40px;
+        height: 40px;
+        line-height: 42px;
+        font-size: 21px;
+        text-align: center;
+        border: 1px solid;
+        &:hover {
+            i {
+                -webkit-animation: SocialSlideUp 0.3s forwards;
+                -moz-animation: SocialSlideUp 0.3s forwards;
+                animation: SocialSlideUp 0.3s forwards;
+            }
+       }
+    }
+}
+
+@-webkit-keyframes SocialSlideUp {
+    49% {
+        -webkit-transform: translateY(-100%);
+    }
+    50% {
+        opacity: 0;
+        -webkit-transform: translateY(100%);
+    }
+    51% {
+        opacity: 1;
+    }
+}
+@-moz-keyframes SocialSlideUp {
+    49% {
+        -moz-transform: translateY(-100%);
+    }
+    50% {
+        opacity: 0;
+        -moz-transform: translateY(100%);
+    }
+    51% {
+        opacity: 1;
+    }
+}
+@keyframes SocialSlideUp {
+    49% {
+        transform: translateY(-100%);
+    }
+    50% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    51% {
+        opacity: 1;
+    }
+}
+
